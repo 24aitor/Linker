@@ -1,5 +1,6 @@
 # Linker
 
+[![StyleCI](https://styleci.io/repos/76742350/shield?branch=master)](https://styleci.io/repos/76742350)
 [![GitHub license](https://img.shields.io/github/license/24aitor/linker.svg?style=flat-square)](https://raw.githubusercontent.com/24aitor/linker/master/LICENSE)
 
 Simple Laravel package to ensure that links are under https when it's needed.
