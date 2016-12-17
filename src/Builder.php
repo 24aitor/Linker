@@ -60,9 +60,6 @@ class Builder
         if ($this->isHttps()) {
             return secure_url(URL::route($routeName,$routeArgs,$absolute));
         }
-        if (isset($routeArgs)) {
-            return route($routeName, $routeArgs, $absolute);
-        }
         return route($routeName, $routeArgs, $absolute);
     }
 }
