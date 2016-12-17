@@ -8,6 +8,11 @@ use URL;
 class Builder
 {
 
+    /**
+     * Checks if your connection is secure
+     *
+     * @return boolean
+     */
     public static function isSecure() {
         if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
             return true;
@@ -19,7 +24,7 @@ class Builder
     }
 
     /**
-     * Return secure_asset method or asset method depending on config https
+     * Return secure_asset method or asset method depending of your connection type (Regular of SSL)
      *
      * @param string $asset
      *
@@ -34,9 +39,10 @@ class Builder
     }
 
     /**
-     * Return secure_url method or url method depending on config https
+     * Return secure_url method or url method depending of your connection type (Regular of SSL)
      *
      * @param string $url
+     * @param string $parameters
      *
      * @return string
      */
@@ -49,9 +55,11 @@ class Builder
     }
 
     /**
-     * Return secure_url method or url method depending on config https
+     * Return a secure route link or a regular route method() depending of your connection type (Regular of SSL)
      *
-     * @param string $url
+     * @param string $routeName
+     * @param string $routeArgs
+     * @param boolean $absolute
      *
      * @return string
      */
