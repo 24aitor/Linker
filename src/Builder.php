@@ -8,7 +8,7 @@ use URL;
 class Builder
 {
 
-    public static function isHttps() {
+    public static function isSecure() {
         if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
             return true;
         }
@@ -27,7 +27,7 @@ class Builder
      */
     public static function asset($asset)
     {
-        if ($this->isHttps()) {
+        if ($this->isSecure()) {
             return secure_asset($asset);
         }
         return asset($asset);
@@ -42,7 +42,7 @@ class Builder
      */
     public static function url($url, $parameters = [])
     {
-        if ($this->isHttps()) {
+        if ($this->isSecure()) {
             return secure_url($url, $parameters);
         }
         return url($url, $parameters);
@@ -55,9 +55,9 @@ class Builder
      *
      * @return string
      */
-    public static function route($routeName, $routeArgs = [], $absolute = true)
+    public static function route($routeName, $routeArgs = [], $absolute = false)
     {
-        if ($this->isHttps()) {
+        if ($this->isSecure()) {
             return secure_url(URL::route($routeName,$routeArgs,$absolute));
         }
         return route($routeName, $routeArgs, $absolute);
