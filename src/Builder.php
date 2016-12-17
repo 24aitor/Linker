@@ -4,20 +4,18 @@ namespace Aitor24\Linker;
 
 use Illuminate\Support\Facades\Facade;
 use URL;
-use Aitor24\Linker\Facades\Linker as ThisLinker;
 
 class Builder
 {
 
     public static function isHttps() {
-        $isSecure = false;
         if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
-            $isSecure = true;
+            return true;
         }
         elseif (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https' || !empty($_SERVER['HTTP_X_FORWARDED_SSL']) && $_SERVER['HTTP_X_FORWARDED_SSL'] == 'on') {
-            $isSecure = true;
+            return true;
         }
-        return $isSecure;
+        return false;
     }
 
     /**
@@ -29,7 +27,7 @@ class Builder
      */
     public static function asset($asset)
     {
-        if (ThisLinker::isHttps()) {
+        if ($this->isHttps()) {
             return secure_asset($asset);
         }
         return asset($asset);
@@ -42,12 +40,12 @@ class Builder
      *
      * @return string
      */
-    public static function url($url)
+    public static function url($url, $parameters = [])
     {
-        if (ThisLinker::isHttps()) {
-            return secure_url($url);
+        if ($this->isHttps()) {
+            return secure_url($url, $parameters);
         }
-        return url($url);
+        return url($url, $parameters);
     }
 
     /**
@@ -57,17 +55,14 @@ class Builder
      *
      * @return string
      */
-    public static function route($routeName, $routeArgs = NULL)
+    public static function route($routeName, $routeArgs = [], $absolute = true)
     {
-        if (ThisLinker::isHttps()) {
-            if (isset($routeArgs)) {
-                return secure_url(URL::route($routeName,$routeArgs,false));
-            }
-            return secure_url(URL::route($routeName,[],false));
+        if ($this->isHttps()) {
+            return secure_url(URL::route($routeName,$routeArgs,$absolute));
         }
         if (isset($routeArgs)) {
-            return route($routeName, $routeArgs);
+            return route($routeName, $routeArgs, $absolute);
         }
-        return route($routeName);
+        return route($routeName, $routeArgs, $absolute);
     }
 }
