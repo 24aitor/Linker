@@ -10,7 +10,7 @@ Simple Laravel package to ensure that links are under https when it's needed.
 Include the line below to config/app.php inside array ``'aliases' => [ :``
 
 ```php
-'Linker'   => Aitor24\Linker\Facades\Linker::class,
+'Linker' => Aitor24\Linker\Facades\Linker::class,
 ```
 
 
@@ -49,7 +49,6 @@ use Linker;
 
 class yourController extends Controller
 {
-
     public function index()
     {
         return redirect(Linker::route('yourRouteName'));
