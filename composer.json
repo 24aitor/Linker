@@ -1,0 +1,19 @@
+{
+    "name": "aitor24/linker",
+    "description": "Simple laravel package to ensure links are under https when it's needed",
+    "type": "security",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Aitor Riba",
+            "email": "info@aitorriba.com",
+			"homepage": "https://aitorriba.com/",
+			"role": "author"
+        }
+    ],
+	"autoload": {
+		"psr-4": {
+			"Aitor24\\Linker\\": "./src"
+		}
+	}
+}
