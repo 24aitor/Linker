@@ -7,7 +7,7 @@ Simple Laravel package to ensure that links are under https when it's needed.
 
 ## Getting Started
 
-Include the line below to config/app.php inside array ``'aliases' => [ :``
+Include the line below to config/app.php inside array ``'aliases' => [`` :
 
 ```php
 'Linker' => Aitor24\Linker\Facades\Linker::class,
@@ -37,7 +37,7 @@ Check if your site is under https to return a secure link to route name or not.
 In your view use as example below:
 
 ```php
-{{ Linker::route('yourRouteName') }}
+<a href="{{ Linker::route('yourRouteName') }}">Link name</a>
 ```
 
 In your controller use as example below:
@@ -53,6 +53,5 @@ class yourController extends Controller
     {
         return redirect(Linker::route('yourRouteName'));
     }
-
 }
 ```
