@@ -32,7 +32,7 @@ class Builder
      */
     public static function asset($asset)
     {
-        if ($this->isSecure()) {
+        if (Builder::isSecure()) {
             return secure_asset($asset);
         }
         return asset($asset);
@@ -48,7 +48,7 @@ class Builder
      */
     public static function url($url, $parameters = [])
     {
-        if ($this->isSecure()) {
+        if (Builder::isSecure()) {
             return secure_url($url, $parameters);
         }
         return url($url, $parameters);
@@ -65,7 +65,7 @@ class Builder
      */
     public static function route($routeName, $routeArgs = [], $absolute = false)
     {
-        if ($this->isSecure()) {
+        if (Builder::isSecure()) {
             return secure_url(URL::route($routeName,$routeArgs,$absolute));
         }
         return route($routeName, $routeArgs, $absolute);

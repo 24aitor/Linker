@@ -5,7 +5,7 @@ namespace Aitor24\Linker\Facades;
 use Aitor24\Linker\Builder;
 use Illuminate\Support\Facades\Facade;
 
-class LocalizerFacade extends Facade
+class Linker extends Facade
 {
     /**
      * Get the registered name of the component.
