@@ -2,29 +2,28 @@
 
 namespace Aitor24\Linker;
 
-use Illuminate\Support\Facades\Facade;
 use URL;
 
 class Builder
 {
-
     /**
-     * Checks if your connection is secure
+     * Checks if your connection is secure.
      *
-     * @return boolean
+     * @return bool
      */
-    public static function isSecure() {
+    public static function isSecure()
+    {
         if (isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] == 'on') {
             return true;
-        }
-        elseif (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https' || !empty($_SERVER['HTTP_X_FORWARDED_SSL']) && $_SERVER['HTTP_X_FORWARDED_SSL'] == 'on') {
+        } elseif (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https' || !empty($_SERVER['HTTP_X_FORWARDED_SSL']) && $_SERVER['HTTP_X_FORWARDED_SSL'] == 'on') {
             return true;
         }
+
         return false;
     }
 
     /**
-     * Return secure_asset method or asset method depending of your connection type (Regular of SSL)
+     * Return secure_asset method or asset method depending of your connection type (Regular of SSL).
      *
      * @param string $asset
      *
@@ -32,14 +31,15 @@ class Builder
      */
     public static function asset($asset)
     {
-        if (Builder::isSecure()) {
+        if (self::isSecure()) {
             return secure_asset($asset);
         }
+
         return asset($asset);
     }
 
     /**
-     * Return secure_url method or url method depending of your connection type (Regular of SSL)
+     * Return secure_url method or url method depending of your connection type (Regular of SSL).
      *
      * @param string $url
      * @param string $parameters
@@ -48,26 +48,28 @@ class Builder
      */
     public static function url($url, $parameters = [])
     {
-        if (Builder::isSecure()) {
+        if (self::isSecure()) {
             return secure_url($url, $parameters);
         }
+
         return url($url, $parameters);
     }
 
     /**
-     * Return a secure route link or a regular route method() depending of your connection type (Regular of SSL)
+     * Return a secure route link or a regular route method() depending of your connection type (Regular of SSL).
      *
      * @param string $routeName
      * @param string $routeArgs
-     * @param boolean $absolute
+     * @param bool   $absolute
      *
      * @return string
      */
     public static function route($routeName, $routeArgs = [], $absolute = false)
     {
-        if (Builder::isSecure()) {
-            return secure_url(URL::route($routeName,$routeArgs,$absolute));
+        if (self::isSecure()) {
+            return secure_url(URL::route($routeName, $routeArgs, $absolute));
         }
+
         return route($routeName, $routeArgs, $absolute);
     }
 }
