@@ -64,12 +64,16 @@ class Builder
      *
      * @return string
      */
-    public static function route($routeName, $routeArgs = [], $absolute = false)
+    public static function route($routeName, $routeArgs = [], $absolute = true)
     {
-        if (self::isSecure()) {
-            return secure_url(URL::route($routeName, $routeArgs, $absolute));
+        if ($absolute) {
+            if (self::isSecure()) {
+                return secure_url(URL::route($routeName, $routeArgs, false));
+            }
+
+            return url(URL::route($routeName, $routeArgs, false));
         }
 
-        return route($routeName, $routeArgs, $absolute);
+        return route($routeName, $routeArgs, false);
     }
 }
