@@ -2,8 +2,8 @@
 
 namespace Aitor24\Linker;
 
-use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\ServiceProvider;
 
 class LinkerServiceProvider extends ServiceProvider
 {
