@@ -18,8 +18,9 @@ class LinkerServiceProvider extends ServiceProvider
             URL::forceScheme('https');
         } elseif (!empty($_SERVER['HTTP_X_FORWARDED_PROTO']) && $_SERVER['HTTP_X_FORWARDED_PROTO'] == 'https' || !empty($_SERVER['HTTP_X_FORWARDED_SSL']) && $_SERVER['HTTP_X_FORWARDED_SSL'] == 'on') {
             URL::forceScheme('https');
+        } else {
+            URL::forceScheme('http');
         }
-        URL::forceScheme('http');
     }
 
     /**
