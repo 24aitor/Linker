@@ -2,10 +2,12 @@
 
 <h1 align="center">Linker</h1>
 
-# Linker
+<p align="center">
+    <a href="https://styleci.io/repos/76742350"><img src="https://styleci.io/repos/76742350/shield?style=flat&branch=master" alt="StyleCI"></a>
+    <a href="https://github.com/24aitor/Linker/releases"><img src="https://poser.pugx.org/aitor24/linker/v/stable.svg" alt="Version"></a>
+    <a href="https://raw.githubusercontent.com/24aitor/linker/master/LICENSE"><img src="https://poser.pugx.org/aitor24/linker/license.svg" alt="License"></a>
+</p>
 
-[![StyleCI](https://styleci.io/repos/76742350/shield?branch=master)](https://styleci.io/repos/76742350)
-[![GitHub license](https://img.shields.io/github/license/24aitor/linker.svg?style=flat-square)](https://raw.githubusercontent.com/24aitor/linker/master/LICENSE)
 
 Simple Laravel package to ensure that links are under https when it's needed, for avoid problems loading assets under SSL.
 
