@@ -18,7 +18,7 @@ This package only needs to register the service provider, then it will force htt
 ### Register Service Provider
 
 ```php
-Aitor24\Linker\LinkerServiceProvider::class
+Aitor24\Linker\LinkerServiceProvider::class,
 ```
 
 <hr>
