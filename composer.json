@@ -19,7 +19,7 @@
     "laravel": {
         "providers": [
             "Aitor24\\Linker\\LinkerServiceProvider"
-        ],
+        ]
     },
     "minimum-stability": "dev"
 }
