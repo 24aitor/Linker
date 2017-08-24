@@ -15,6 +15,8 @@ Simple Laravel package to ensure that links are under https when it's needed, fo
 
 This package only needs to register the service provider, then it will force https automatically.
 
+And if you're using laravel 5.5+ it will be done automatically.
+
 ### Register Service Provider
 
 ```php

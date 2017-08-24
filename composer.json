@@ -15,5 +15,11 @@
 		"psr-4": {
 			"Aitor24\\Linker\\": "./src"
 		}
-	}
+	},
+    "laravel": {
+        "providers": [
+            "Aitor24\\Linker\\LinkerServiceProvider"
+        ],
+    },
+    "minimum-stability": "dev"
 }
