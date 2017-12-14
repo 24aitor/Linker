@@ -16,10 +16,12 @@
 			"Aitor24\\Linker\\": "./src"
 		}
 	},
-    "laravel": {
-        "providers": [
-            "Aitor24\\Linker\\LinkerServiceProvider"
-        ]
-    },
+	"extra": {
+		"laravel": {
+			"providers": [
+				"Aitor24\\Linker\\LinkerServiceProvider"
+			]
+		}
+	},
     "minimum-stability": "dev"
 }
